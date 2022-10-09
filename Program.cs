@@ -1,7 +1,11 @@
+using MvcMovie.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Attach an EF Core database context to each query
+builder.Services.AddDbContext<MvcMovieContext>();
 
 var app = builder.Build();
 
