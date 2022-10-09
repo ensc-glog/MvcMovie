@@ -11,7 +11,7 @@ public class MvcMovieContext : DbContext
     public MvcMovieContext()
     {
         // Path to SQLite database file
-        DbPath = "MvcBlog.db";
+        DbPath = "MvcMovie.db";
     }
 
     // The following configures EF to create a SQLite database file locally
