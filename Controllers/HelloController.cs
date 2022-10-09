@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MvcMovie.Controllers;
 
-public class HelloController : Controller
+public class HelloController : ControllerBase
 {
     // 
     // GET: /Hello/
