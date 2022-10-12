@@ -7,9 +7,9 @@ public class HelloController : Controller
 {
     // 
     // GET: /Hello/
-    public string Index()
+    public IActionResult Index()
     {
-        return "Hello World!";
+        return View();
     }
 
     // ...

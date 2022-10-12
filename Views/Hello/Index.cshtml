@@ -1,0 +1,55 @@
+@*
+    This view demonstrates some possibilities of the Razor syntax.
+    (This is a server-side comment, by the way).
+*@
+
+<h2>Hello ASP.NET Core MVC!</h2>
+
+@{
+    @* Some info about a famous monument. *@
+    string monument = "Eiffel Tower";
+    int year = 1889;
+}
+
+<p>The @monument was inaugurated in @year. It is @(DateTime.Now.Year - year) years old!</p>
+
+@{
+    string[] colors = { "blue", "brown", "black" };
+}
+
+@if (colors.Length > 0)
+{
+    <p>A few colors:</p>
+    <ul>
+    @foreach (string color in colors)
+        {
+            <li>Color: @color</li>
+        }
+    </ul>
+}
+
+<p>
+    @{
+        void RenderStrong(string value)
+        {
+            <strong>@value</strong>
+        }
+
+        int count = 5;
+        while (count > 0)
+        {
+            <text>@count... </text>
+            count--;
+        }
+        RenderStrong("BOOM!");
+    }
+</p>
+
+@{
+    string visitorName = "Baptiste";
+}
+<p>
+    Here's an <a href="https://fr.wikipedia.org/wiki/Tour_Eiffel">external link</a>,
+    a <a asp-controller="Home" asp-action="Index">link to the home page</a>
+    and a <a asp-action="Welcome" asp-route-name="@visitorName" asp-route-numtimes="5">link with parameters</a>.
+</p>
