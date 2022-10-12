@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MvcMovie.Controllers;
 
-public class HelloController : ControllerBase
+public class HelloController : Controller
 {
     // 
     // GET: /Hello/
@@ -12,10 +12,13 @@ public class HelloController : ControllerBase
         return "Hello World!";
     }
 
+    // ...
     // GET: /Hello/Welcome/ 
-    public string Welcome(string name, int numTimes = 1)
+    public IActionResult Welcome(string name, int numTimes = 0)
     {
-        // Prevents injection attacks
-        return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+        ViewData["Message"] = "Hello " + name;
+        ViewData["NumTimes"] = numTimes;
+
+        return View();
     }
 }
