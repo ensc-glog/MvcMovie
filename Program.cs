@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 // Attach an EF Core database context to each query
 builder.Services.AddDbContext<MvcMovieContext>();
 
@@ -25,13 +26,19 @@ else
     app.UseDeveloperExceptionPage();
 }
 
+// Redirects HTTP requests to HTTPS.
 app.UseHttpsRedirection();
+
+// Enables static files, such as HTML, CSS, images, and JavaScript to be served.
 app.UseStaticFiles();
 
+// Adds route matching.
 app.UseRouting();
 
+// Authorizes a user to access secure resources (not mandatory here).
 app.UseAuthorization();
 
+// Define routing strategy.
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
