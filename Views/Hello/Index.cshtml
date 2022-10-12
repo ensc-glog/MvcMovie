@@ -6,6 +6,8 @@
 <h2>Hello ASP.NET Core MVC!</h2>
 
 @{
+    ViewData["Title"] = "Hello Page";
+
     @* Some info about a famous monument. *@
     string monument = "Eiffel Tower";
     int year = 1889;
@@ -46,7 +48,7 @@
 </p>
 
 @{
-    string visitorName = "Baptiste";
+    string visitorName = "Garance";
 }
 <p>
     Here's an <a href="https://fr.wikipedia.org/wiki/Tour_Eiffel">external link</a>,
