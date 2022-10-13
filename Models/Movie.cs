@@ -11,5 +11,6 @@ public class Movie
     [Display(Name = "Release Date"), DataType(DataType.Date)]
     public DateTime ReleaseDate { get; set; }
 
+    [StringLength(30)]
     public string Genre { get; set; } = null!;
 }
