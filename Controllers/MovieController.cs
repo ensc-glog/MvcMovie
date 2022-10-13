@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
+using MvcMovie.Models;
 
 namespace MvcMovie.Controllers;
 
@@ -36,6 +37,30 @@ public class MovieController : Controller
             return NotFound();
         }
 
+        return View(movie);
+    }
+
+    // GET: Movie/Create
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    // POST: Movie/Create
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre")] Movie movie)
+    {
+        // Apply model validation rules
+        if (ModelState.IsValid)
+        {
+            _context.Add(movie);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        // At this point, something failed: redisplay form
         return View(movie);
     }
 }
