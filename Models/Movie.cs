@@ -6,6 +6,7 @@ public class Movie
 {
     public int Id { get; set; }
 
+    [StringLength(100, MinimumLength = 3)]
     public string Title { get; set; } = null!;
 
     [Display(Name = "Release Date"), DataType(DataType.Date)]
