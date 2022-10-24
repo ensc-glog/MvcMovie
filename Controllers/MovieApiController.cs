@@ -42,7 +42,7 @@ public class MovieApiController : ControllerBase
         _context.Movies.Add(movie);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetTodo", new { id = movie.Id }, movie);
+        return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
     }
 
     // PUT: api/MovieApi/5
